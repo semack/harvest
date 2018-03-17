@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>David Bond</Authors>
+    <PackageId>Harvest</PackageId>
+    <Version>2.1.0</Version>
+    <Company>Panoramic Data Limited</Company>
+    <Description>A wrapper for the Harvest time tracking API, forked from the Github project by Joel Potter, Data Research Group, Paul Irwin, updated to support .NET Standard 2.0.</Description>
+    <Copyright>Panoramic Data Limited 2018</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageProjectUrl>https://bitbucket.org/panoramicdata/harvest</PackageProjectUrl>
+    <PackageIconUrl>https://www.getharvest.com/assets/press/harvest-logo-icon-77a6f855102e2f85a7fbe070575f293346a643c371a49ceff341d2814e270468.png</PackageIconUrl>
+    <RepositoryUrl>ssh://bitbucket.org/panoramicdata/harvest.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>harvest;harvestapp;harvestapi;api;harvesthq;timetracking</PackageTags>
+    <PackageReleaseNotes>Updated to target .NET Standard</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="Refit" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
