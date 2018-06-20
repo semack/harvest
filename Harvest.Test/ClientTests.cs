@@ -7,13 +7,12 @@ namespace Harvest.Test
 	{
 		public ClientTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
 		{
-			
 		}
 
 		[Fact]
 		public async void GetAllClients()
 		{
-			//var _ = await HarvestClient.Clients.ListAllAsync();
+			var _ = await HarvestClient.Clients.ListAllAsync().ConfigureAwait(false);
 		}
 	}
 }

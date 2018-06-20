@@ -1,5 +1,4 @@
-﻿using System;
-using Harvest.Dtos;
+﻿using Harvest.Dtos;
 using Refit;
 
 namespace Harvest.Models
@@ -27,23 +26,14 @@ namespace Harvest.Models
 		[AliasAs("task_id")]
 		public long TaskId { get; set; }
 
-		/// <summary>
-		/// The ISO 8601 formatted date the time entry was spent.
-		/// </summary>
-		public DateTime SpentDate
-		{
-			get => DateTime.Parse(SpentDateApi);
-			set => SpentDateApi = value.ToString("yyyy-MM-ddTHH:mm:ssZ");
-		}
+		[AliasAs("spent_date")]
+		public string SpentDate { get; set; }
 
-		[AliasAs("spentDate")]
-		public string SpentDateApi { get; private set; }
+		[AliasAs("started_time")]
+		public string StartedTime { get; set; }
 
-		/// <summary>
-		/// 	The ISO 8601 formatted date and time the timer was started. Defaults to the current time.
-		/// </summary>
-		[AliasAs("timer_started_at")]
-		public string TimerStartedAt { get; set; }
+		[AliasAs("ended_time")]
+		public string EndedTime { get; set; }
 
 		/// <summary>
 		/// The current amount of time tracked. Defaults to 0.0.

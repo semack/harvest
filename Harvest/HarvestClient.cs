@@ -1,11 +1,12 @@
-﻿using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Reflection;
-using Harvest.ContractResolvers;
+﻿using Harvest.ContractResolvers;
 using Harvest.Interfaces;
 using Newtonsoft.Json;
 using Refit;
+using System;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Reflection;
 
 namespace Harvest
 {
@@ -13,17 +14,39 @@ namespace Harvest
 	{
 		private readonly HttpClient _httpClient;
 
-		public HarvestClient(int accountId, string accessToken)
+		public HarvestClient(int accountId, string accessToken, string proxyUrl = null)
 		{
 			var refitSettings = new RefitSettings
 			{
 				JsonSerializerSettings = new JsonSerializerSettings
 				{
-					ContractResolver = new SnakeCaseContractResolver()
+					ContractResolver = new SnakeCaseContractResolver(),
+					NullValueHandling = NullValueHandling.Ignore
 				}
 			};
 
-			_httpClient = new HttpClient
+			WebProxy proxy = null;
+			if (proxyUrl != null)
+			{
+				proxy = new WebProxy()
+				{
+					Address = new Uri(proxyUrl),
+					BypassProxyOnLocal = false,
+					UseDefaultCredentials = false,
+
+					//// *** These credentials are given to the proxy server, not the web server ***
+					//Credentials = new NetworkCredential(
+					//	userName: proxyUserName,
+					//	password: proxyPassword);
+				};
+			}
+
+			var httpClientHandler = new HttpClientHandler()
+			{
+				Proxy = proxy,
+			};
+
+			_httpClient = new HttpClient(handler: httpClientHandler, disposeHandler: true)
 			{
 				BaseAddress = new Uri("https://api.harvestapp.com"),
 				DefaultRequestHeaders =
@@ -32,8 +55,9 @@ namespace Harvest
 					UserAgent =
 					{
 						new ProductInfoHeaderValue("harvest.net", Assembly.GetExecutingAssembly().GetName().Version.ToString())
-					}
-				}
+					},
+
+				},
 			};
 
 			_httpClient.DefaultRequestHeaders.Add("Harvest-Account-Id", accountId.ToString());

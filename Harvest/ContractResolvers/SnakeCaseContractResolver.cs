@@ -22,8 +22,8 @@
 //
 // Original license: https://github.com/mrstebo/SnakeCase.JsonNet/blob/master/LICENSE
 
-using System.Text.RegularExpressions;
 using Newtonsoft.Json.Serialization;
+using System.Text.RegularExpressions;
 
 namespace Harvest.ContractResolvers
 {
@@ -37,18 +37,18 @@ namespace Harvest.ContractResolvers
 		private static string GetSnakeCase(string input)
 		{
 			if (string.IsNullOrEmpty(input))
+			{
 				return input;
+			}
 
 			var buffer = input;
 
-			buffer = Regex.Replace(buffer, @"([A-Z]+)([A-Z][a-z])", "$1_$2");
+			buffer = Regex.Replace(buffer, "([A-Z]+)([A-Z][a-z])", "$1_$2");
 			buffer = Regex.Replace(buffer, @"([a-z\d])([A-Z])", "$1_$2");
-			buffer = Regex.Replace(buffer, @"-", "_");
+			buffer = Regex.Replace(buffer, "-", "_");
 			buffer = Regex.Replace(buffer, @"\s", "_");
-			buffer = Regex.Replace(buffer, @"__+", "_");
-			buffer = buffer.ToLowerInvariant();
-
-			return buffer;
+			buffer = Regex.Replace(buffer, "__+", "_");
+			return buffer.ToLowerInvariant();
 		}
 	}
 }

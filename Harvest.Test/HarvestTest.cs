@@ -12,7 +12,7 @@ namespace Harvest.Test
 	public class HarvestTest
 	{
 		protected ILogger Logger { get; }
-		protected HarvestClient HarvestClient {get;}
+		protected HarvestClient HarvestClient { get; }
 		protected Configuration Configuration { get; }
 
 		protected HarvestTest(ITestOutputHelper iTestOutputHelper)
@@ -23,7 +23,7 @@ namespace Harvest.Test
 				.CreateLogger<HarvestTest>();
 
 			Configuration = LoadConfiguration("appsettings.json");
-			HarvestClient = new HarvestClient(Configuration.AccountId, Configuration.AccessToken);
+			HarvestClient = new HarvestClient(Configuration.AccountId, Configuration.AccessToken, "http://localhost:8888");
 		}
 
 		private static Configuration LoadConfiguration(string jsonFilePath)

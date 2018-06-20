@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Linq;
 using System.Text;
-using Microsoft.Extensions.Logging;
 using Xunit.Abstractions;
 
 namespace Harvest.Test.Logging
@@ -33,12 +33,12 @@ namespace Harvest.Test.Logging
 
 			var firstLinePrefix = $"| {_category} {logLevel}: ";
 			var lines = formatter(state, exception).Split(NewLineChars, StringSplitOptions.RemoveEmptyEntries);
-			messageBuilder.AppendLine(firstLinePrefix + lines.FirstOrDefault());
+			messageBuilder.Append(firstLinePrefix).AppendLine(lines.FirstOrDefault());
 
 			var additionalLinePrefix = "|" + new string(' ', firstLinePrefix.Length - 1);
 			foreach (var line in lines.Skip(1))
 			{
-				messageBuilder.AppendLine(additionalLinePrefix + line);
+				messageBuilder.Append(additionalLinePrefix).AppendLine(line);
 			}
 
 			if (exception != null)
@@ -47,7 +47,7 @@ namespace Harvest.Test.Logging
 				additionalLinePrefix = "| ";
 				foreach (var line in lines.Skip(1))
 				{
-					messageBuilder.AppendLine(additionalLinePrefix + line);
+					messageBuilder.Append(additionalLinePrefix).AppendLine(line);
 				}
 			}
 
@@ -62,7 +62,9 @@ namespace Harvest.Test.Logging
 			{
 				_output.WriteLine(message);
 			}
+#pragma warning disable RCS1075 // Avoid empty catch clause that catches System.Exception.
 			catch (Exception)
+#pragma warning restore RCS1075 // Avoid empty catch clause that catches System.Exception.
 			{
 				// We could fail because we're on a background thread and our captured ITestOutputHelper is
 				// busted (if the test "completed" before the background thread fired).
@@ -93,6 +95,7 @@ namespace Harvest.Test.Logging
 		{
 			_output = output;
 		}
+
 		public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
 		{
 			_output.WriteLine(state.ToString());

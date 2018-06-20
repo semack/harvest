@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Harvest.Models
 {
@@ -90,17 +91,27 @@ namespace Harvest.Models
 		/// <summary>
 		/// Date and time the timer was started (if tracking by duration).
 		/// </summary>
-		public DateTime? TimerStartedAt { get; set; }
+		public DateTime? SpentAt { get; set; }
 
 		/// <summary>
 		/// Time the time entry was started (if tracking by start/end times).
 		/// </summary>
-		public TimeSpan? StartedTime { get; set; }
+		public string StartedTime { get; set; }
+
+		/// <summary>
+		/// StartedTime comes back as a string in the form 12:34pm
+		/// </summary>
+		public TimeSpan? StartedTimeSpan => TimeSpan.ParseExact(StartedTime, "hh:mmtt", CultureInfo.InvariantCulture);
 
 		/// <summary>
 		/// Time the time entry was ended (if tracking by start/end times).
 		/// </summary>
-		public TimeSpan? EndedTime { get; set; }
+		public string EndedTime { get; set; }
+
+		/// <summary>
+		/// EndedTime comes back as a string in the form 12:34pm
+		/// </summary>
+		public TimeSpan? EndedTimeSpan => TimeSpan.ParseExact(EndedTime, "hh:mmtt", CultureInfo.InvariantCulture);
 
 		/// <summary>
 		/// Whether or not the time entry is currently running.

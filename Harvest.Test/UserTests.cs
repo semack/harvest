@@ -7,13 +7,14 @@ namespace Harvest.Test
 	{
 		public UserTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
 		{
-			
+
 		}
 
 		[Fact]
 		public async void GetMe()
 		{
-			var harvestUser = await HarvestClient.Users.GetMeAsync();
+			var harvestUser = await HarvestClient.Users.GetMeAsync().ConfigureAwait(false);
+			Assert.NotNull(harvestUser);
 		}
 	}
 }

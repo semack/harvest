@@ -1,7 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using Harvest.Models;
+﻿using Harvest.Models;
 using Refit;
+using System;
+using System.Threading.Tasks;
 
 namespace Harvest.Interfaces
 {
@@ -22,7 +22,7 @@ namespace Harvest.Interfaces
 		);
 
 		[Get("/v2/time_entries/{id}")]
-		Task<Client> GetAsync(long id);
+		Task<TimeEntry> GetAsync(long id);
 
 		[Delete("/v2/time_entries/{id}")]
 		System.Threading.Tasks.Task DeleteAsync(long id);
