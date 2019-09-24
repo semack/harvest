@@ -18,11 +18,11 @@ namespace Harvest
 		{
 			var refitSettings = new RefitSettings
 			{
-				JsonSerializerSettings = new JsonSerializerSettings
+				ContentSerializer = new JsonContentSerializer(new JsonSerializerSettings
 				{
 					ContractResolver = new SnakeCaseContractResolver(),
 					NullValueHandling = NullValueHandling.Ignore
-				}
+				})
 			};
 
 			WebProxy proxy = null;
@@ -56,7 +56,6 @@ namespace Harvest
 					{
 						new ProductInfoHeaderValue("harvest.net", Assembly.GetExecutingAssembly().GetName().Version.ToString())
 					},
-
 				},
 			};
 

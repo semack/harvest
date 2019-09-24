@@ -1,10 +1,10 @@
-using System.IO;
-using System.Reflection;
 using Harvest.Test.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.IO;
+using System.Reflection;
 using Xunit.Abstractions;
 
 namespace Harvest.Test
@@ -18,12 +18,12 @@ namespace Harvest.Test
 		protected HarvestTest(ITestOutputHelper iTestOutputHelper)
 		{
 			Logger = new LoggerFactory()
-				.AddDebug(LogLevel.Trace)
+				//.AddDebug(LogLevel.Trace)
 				.AddXunit(iTestOutputHelper, LogLevel.Trace)
 				.CreateLogger<HarvestTest>();
 
 			Configuration = LoadConfiguration("appsettings.json");
-			HarvestClient = new HarvestClient(Configuration.AccountId, Configuration.AccessToken, "http://localhost:8888");
+			HarvestClient = new HarvestClient(Configuration.AccountId, Configuration.AccessToken);
 		}
 
 		private static Configuration LoadConfiguration(string jsonFilePath)

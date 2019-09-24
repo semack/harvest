@@ -9,7 +9,6 @@ namespace Harvest.Test
 	{
 		public TimeEntriesTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
 		{
-
 		}
 
 		[Fact]

@@ -7,7 +7,6 @@ namespace Harvest.Test
 	{
 		public UserTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
 		{
-
 		}
 
 		[Fact]
