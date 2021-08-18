@@ -69,6 +69,8 @@ namespace Harvest
 			ProjectTaskAssignments = RestService.For<IProjectTaskAssignmentApi>(_httpClient, refitSettings);
 			Users = RestService.For<IUserApi>(_httpClient, refitSettings);
 			UserProjectAssignments = RestService.For<IUserProjectAssignmentApi>(_httpClient, refitSettings);
+			ExpenseCategories = RestService.For<IExpenseCategoriesApi>(_httpClient, refitSettings);
+			Expenses = RestService.For<IExpensesApi>(_httpClient, refitSettings);
 		}
 
 		/// <summary>
@@ -110,6 +112,16 @@ namespace Harvest
 		/// Tasks
 		/// </summary>
 		public ITaskApi Tasks { get; }
+
+		/// <summary>
+		/// Expense categories
+		/// </summary>
+		public IExpenseCategoriesApi ExpenseCategories { get; }
+		
+		/// <summary>
+		/// Expense categories
+		/// </summary>
+		public IExpensesApi Expenses { get; }
 
 		public void Dispose()
 		{
