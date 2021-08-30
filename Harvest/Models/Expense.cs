@@ -25,6 +25,7 @@ namespace Harvest.Models
         public Invoice Invoice { get; set; }
     }
 
+    // https://help.getharvest.com/api-v2/expenses-api/expenses/expenses/
     public class CreateExpense
     {
         public int? UserId { get; set; }
@@ -35,6 +36,7 @@ namespace Harvest.Models
         public double? Units { get; set; }
         public string Notes { get; set; }
         public bool? Billable { get; set; }
+        public string Receipt { get; set; }
         // TODO: receipt	file	optional	A receipt file to attach to the expense. If including a receipt, you must submit a multipart/form-data request.
     }
 }
