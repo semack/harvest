@@ -16,7 +16,7 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>harvest;harvestapp;harvestapi;api;harvesthq;timetracking</PackageTags>
 		<PackageReleaseNotes></PackageReleaseNotes>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <AssemblyVersion>2.4$(VersionSuffix)</AssemblyVersion>
         <FileVersion>2.4$(VersionSuffix)</FileVersion>
