@@ -5,7 +5,7 @@
 		<Authors>David Bond</Authors>
 		<PackageId>Harvest.Core</PackageId>
 		<LangVersion>latest</LangVersion>
-		<Version>2.4.0</Version>
+		<Version>2.4$(VersionSuffix)</Version>
 		<Company>Panoramic Data Limited</Company>
 		<Description>A wrapper for the Harvest time tracking API, forked from the Github project by Joel Potter, Data Research Group, Paul Irwin, updated to support .NET Standard 2.0.</Description>
 		<Copyright>Panoramic Data Limited 2021</Copyright>
@@ -18,8 +18,8 @@
 		<PackageReleaseNotes></PackageReleaseNotes>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<AssemblyVersion>2.4.0.0</AssemblyVersion>
-		<FileVersion>2.4.0.0</FileVersion>
+        <AssemblyVersion>2.4$(VersionSuffix)</AssemblyVersion>
+        <FileVersion>2.4$(VersionSuffix)</FileVersion>
 		<AssemblyName>Harvest.Core</AssemblyName>
 	</PropertyGroup>
 
