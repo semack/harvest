@@ -10,7 +10,7 @@ Install-Package Harvest.Core
 ```
 
 ## License
-Please see [LICENSE](Harvest/LICENSE).
+This project is licensed under the terms of the MIT license.
 
 ## Contribute
 Contributions are welcome. Just open an Issue or submit a PR. 
