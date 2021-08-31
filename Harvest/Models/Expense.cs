@@ -4,7 +4,7 @@ namespace Harvest.Models
 {
     public class Expense
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Notes { get; set; }
         public double TotalCost { get; set; }
         public double Units { get; set; }
@@ -28,9 +28,9 @@ namespace Harvest.Models
     // https://help.getharvest.com/api-v2/expenses-api/expenses/expenses/
     public class CreateExpense
     {
-        public int? UserId { get; set; }
-        public int ProjectId { get; set; }
-        public int ExpenseCategoryId { get; set; }
+        public long? UserId { get; set; }
+        public long ProjectId { get; set; }
+        public long ExpenseCategoryId { get; set; }
         public DateTime SpentDate { get; set; }
         public double? TotalCost { get; set; }
         public double? Units { get; set; }

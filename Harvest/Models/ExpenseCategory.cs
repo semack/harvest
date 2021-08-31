@@ -4,7 +4,7 @@ namespace Harvest.Models
 {
     public class ExpenseCategory
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         public string UnitName { get; set; }
         public double? UnitPrice { get; set; }
