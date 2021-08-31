@@ -3,16 +3,16 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Authors>David Bond</Authors>
-		<PackageId>Harvest</PackageId>
+		<PackageId>Harvest.Core</PackageId>
 		<LangVersion>latest</LangVersion>
 		<Version>2.4.0</Version>
 		<Company>Panoramic Data Limited</Company>
 		<Description>A wrapper for the Harvest time tracking API, forked from the Github project by Joel Potter, Data Research Group, Paul Irwin, updated to support .NET Standard 2.0.</Description>
 		<Copyright>Panoramic Data Limited 2021</Copyright>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<PackageProjectUrl>https://bitbucket.org/panoramicdata/harvest</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/semack/harvest</PackageProjectUrl>
 		<PackageIcon>harvest-logo-icon.png</PackageIcon>
-		<RepositoryUrl>ssh://bitbucket.org/panoramicdata/harvest.git</RepositoryUrl>
+		<RepositoryUrl>https://github.com/semack/harvest.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>harvest;harvestapp;harvestapi;api;harvesthq;timetracking</PackageTags>
 		<PackageReleaseNotes></PackageReleaseNotes>
@@ -20,6 +20,7 @@
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<AssemblyVersion>2.4.0.0</AssemblyVersion>
 		<FileVersion>2.4.0.0</FileVersion>
+		<AssemblyName>Harvest.Core</AssemblyName>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -29,8 +30,8 @@
 
 
 	<ItemGroup>
-		<None Include="LICENSE" Pack="true" PackagePath=""/>
-		<None Include="harvest-logo-icon.png" Pack="true" PackagePath=""/>
+		<None Include="LICENSE" Pack="true" PackagePath="" />
+		<None Include="harvest-logo-icon.png" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 </Project>
