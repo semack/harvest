@@ -19,9 +19,7 @@ jobs:
         dotnet-version: 5.0.100
     - name: Restore
       run: dotnet restore 
-    - name: Build
-      run: dotnet build --configuration Release --no-restore 
     - name: Pack
-      run: dotnet pack Harvest/Harvest.csproj --configuration Release --no-restore --output ./nupkgs --version-suffix --version-suffix .${{ github.run_number }}
+      run: dotnet pack Harvest/Harvest.csproj --configuration Release --no-restore --output ./nupkgs --version-suffix .${{ github.run_number }}
     - name: Push
-      run: dotnet nuget push ./nupkgs/Harvest.Core.*.nupkg --source ${{secrets.NUGET_SOURCE}} --api-key ${{secrets.NUGET_API_KEY}} 
+      run: dotnet nuget push ./nupkgs/*.nupkg --source ${{secrets.NUGET_SOURCE}} --api-key ${{secrets.NUGET_API_KEY}} 
