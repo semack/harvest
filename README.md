@@ -10,7 +10,7 @@ Install-Package Harvest.Core
 ```
 
 ## License
-Please see [LICENSE](LICENSE.md).
+Please see [LICENSE](Harvest/LICENSE).
 
 ## Contribute
 Contributions are welcome. Just open an Issue or submit a PR. 
